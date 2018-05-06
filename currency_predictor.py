@@ -3,6 +3,7 @@ import glob
 import pandas as pd
 from forex_python.converter import CurrencyRates
 import matplotlib.pyplot as plt
+plt.style.use('ggplot')
 
 # Rate USD  MXN
 dollar_price = CurrencyRates().get_rate('USD', 'MXN')
@@ -26,9 +27,10 @@ print("DataFrame:\n", df.head())
 print("\nNew DF:\n", new_df.head())
 print("\nSummary statistics:\n", new_df.MXN.describe())
 print("\ndf shape:{}, new_df shape:{}".format(df.shape, new_df.shape))
-print(new_df.loc['2018-01-01': '2018-05-05', 'MXN'])
 
-new_df.MXN['2018-01-05': '2018-05-05'].plot()
+"""
+new_df.MXN['2018-01-01': '2018-05-05'].plot()
 plt.title("Ether value")
 plt.ylabel("MXN")
 plt.show()
+"""
