@@ -3,10 +3,15 @@ import glob
 import pandas as pd
 from forex_python.converter import CurrencyRates
 import matplotlib.pyplot as plt
+
 plt.style.use('ggplot')
 
 # Rate USD  MXN
-dollar_price = CurrencyRates().get_rate('USD', 'MXN')
+try:
+    dollar_price = CurrencyRates().get_rate('USD', 'MXN')
+except:
+    print("Internet error connection, what is the dollar price?")
+    dollar_price = float(input("Dollar price: "))
 
 # Save all file matches
 csv_files = glob.glob("*.csv")
